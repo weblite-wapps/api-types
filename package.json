@@ -1,11 +1,10 @@
 {
   "name": "@web-lite/api-types",
-  "version": "1.0.0-alpha.0",
+  "private": false,
   "types": "index.d.ts",
-  "author": {
-    "name": "Amir.H Ebrahimi",
-    "email": "amirhosseinebrahimi77@gmail.com"
-  },
+  "author": "Weblite Team",
+  "version": "1.0.0-alpha.0",
+  "description": "Use W with type checking and docs out of the box.",
   "keywords": [
     "weblite",
     "weblite-wapp",
@@ -15,6 +14,9 @@
   ],
   "bugs": {
     "url": "https://github.com/weblite-wapps/api-types/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": "https://github.com/weblite-wapps/api-types",
   "homepage": "https://github.com/weblite-wapps/api-types#readme"
