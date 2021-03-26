@@ -437,3 +437,5 @@ declare interface IWindow {
   W: W;
   [key: string]: any;
 }
+
+export = IWindow;
