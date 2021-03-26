@@ -11,7 +11,11 @@ interface Images {
    * @property {number} [options.width]  - The width of image in pixels, it will be clamped by max-width of viewport
    * @property {number} [options.height] - The width of image in pixels, it will be clamped by max-height of viewport
    */
-  openModal: (options: { src: string; width?: number; hieght?: number }) => void
+  openModal: (options: {
+    src: string;
+    width?: number;
+    hieght?: number;
+  }) => void;
 }
 
 /////////////////////////
@@ -19,15 +23,15 @@ interface Images {
 ////////////////////////
 
 interface ChatInfo {
-  id?: string
-  description?: string
-  isMember?: boolean
-  name?: string
-  profileImage?: string
-  type?: 'channel' | 'group'
-  username?: string
+  id?: string;
+  description?: string;
+  isMember?: boolean;
+  name?: string;
+  profileImage?: string;
+  type?: 'channel' | 'group';
+  username?: string;
   /** If requeset chat is private */
-  privateChat?: boolean
+  privateChat?: boolean;
 }
 
 interface Chats {
@@ -37,21 +41,21 @@ interface Chats {
    * @param {string} username
    * @returns {promise} chatInto
    */
-  getPublicChatByUsername: (username: string) => Promise<ChatInfo>
+  getPublicChatByUsername: (username: string) => Promise<ChatInfo>;
   /** Gives info of specified chat by id.
    * @date 2021-03-20
    * @param {string} id
    * @returns {promise} chatInto
    */
 
-  getById: (id: string) => Promise<ChatInfo>
+  getById: (id: string) => Promise<ChatInfo>;
 
   /**
    * Joins current user in specified chat (by id).
    * @date 2021-03-20
    * @param {string} chatId - Id of chat you want to join user in.
    */
-  join: (id: string) => void
+  join: (id: string) => void;
 }
 
 /////////////////////////
@@ -66,17 +70,17 @@ interface Chats {
 type Analytics = (
   type: string,
   data: { [key: string]: string | number },
-) => void
+) => void;
 
 /////////////////////////
 //    AUDIOSYSTEM      //
 ////////////////////////
 interface AudioSystem {
-  play: (src: string) => void
-  pause: (src: string) => void
-  stop: (src: string) => void
-  setSeek: (src: string, seek: number) => void
-  setVolume: (src: string, volume: number) => void
+  play: (src: string) => void;
+  pause: (src: string) => void;
+  stop: (src: string) => void;
+  setSeek: (src: string, seek: number) => void;
+  setVolume: (src: string, volume: number) => void;
 }
 
 /////////////////////////
@@ -92,22 +96,22 @@ type RunningWappMode =
   | 'drawer'
   | 'main'
   | 'fullscreen'
-  | 'customize'
+  | 'customize';
 interface RunningWappInfo {
-  mode: RunningWappMode
+  mode: RunningWappMode;
 }
 
 interface Notification {
   /** Id of notification. */
-  id: string
+  id: string;
   /** Title of notification.  */
-  title: string
+  title: string;
   /** Body text of notification. */
-  body: string
+  body: string;
   /** Id of sender wapp instance. */
-  wisId: string
+  wisId: string;
   /** Date of sending this notification. */
-  created_at: Date
+  created_at: Date;
 }
 
 /** An object containing lifecycle hooks. */
@@ -126,27 +130,27 @@ interface Hooks {
     start: () => void,
     throwError: (error: string) => never,
     info: RunningWappInfo,
-  ) => void
+  ) => void;
 
   /**
    * Gets called when wapp is started and weblite loading is removed.
    * @date 2021-03-20
    * @param {TRunningWappMode} [info] - An object containing mode of running wapp.
    */
-  wappDidStart?: (info: RunningWappInfo) => void
+  wappDidStart?: (info: RunningWappInfo) => void;
 
   /**
    * Gets called before wapp gets into halt mode.
    * @date 2021-03-20
    * @param {TRunningWappMode} [info] - An object containing mode of running wapp.
    */
-  onHalt?: (info: RunningWappInfo) => void
+  onHalt?: (info: RunningWappInfo) => void;
   /**
    * Gets called when there is a new notification this user and wapp instance.
    * @date 2021-03-20
    * @param {Notification} notification - An object containing new notification info
    */
-  onNotif?: (notification: Notification) => void
+  onNotif?: (notification: Notification) => void;
   /**
    * Gets called when the wapp’s customization process gets completed and
    * user clicks on the done button in the customize panel.
@@ -161,60 +165,60 @@ interface Hooks {
   onCustomizationDone?: (
     finalize: Function,
     customizationObject: Object,
-  ) => void
+  ) => void;
 }
 
-type SetHooks = (hooks: Hooks) => void
+type SetHooks = (hooks: Hooks) => void;
 
 /**
  * Notice that starred functions need W.initializeAsync() to be resolved (by undefined)
  * before they can be called.
  */
-type InitializeAsync = () => Promise<void>
+type InitializeAsync = () => Promise<void>;
 
 /////////////////////////
 //      ShareDB        //
 ////////////////////////
 //** Under Construction */
-type ShareDB = (value: any) => void
+type ShareDB = (value: any) => void;
 
 /////////////////////////
 //        Wapp         //
 ////////////////////////
 interface Wapp {
   /** Returns wappId of running wapp. */
-  getWappId: () => string
+  getWappId: () => string;
   /** Returns Id of running wapp instance. */
-  getWisId: () => string | undefined
+  getWisId: () => string | undefined;
   /**
    * Returns the mode wapp is running in.
    * @returns {TWappModes}
    */
-  getMode: () => string
+  getMode: () => string;
   /** Removes wapp loading and shows it. */
-  start: () => void
+  start: () => void;
   /** Close wapp. */
-  close: () => void
+  close: () => void;
   /** Restart wapp */
-  restart: () => void
+  restart: () => void;
   /**
    * Stops wapp and shows given Error on wapp frame.
    * @date 2021-03-20
    * @param {string} error - error message for Error constructor
    */
-  throwError: (error: string) => never
+  throwError: (error: string) => never;
   /**
    * Enter or exit fullscreen without changing mode or reOpening wapp
    * @date 2021-03-20
    * @param {boolean} willBeFullscreen - Enter or exit fullscreen size.
    */
-  setFullscreen: (willBeFullscreen: boolean) => void
+  setFullscreen: (willBeFullscreen: boolean) => void;
   /**
    * @date 2021-03-20
    * @param {TWappModes} mode - Mode to change to.
    * @param {Object} input - Input to pass to wapp in new mode.
    */
-  changeMode: (mode: string, input: Object) => void
+  changeMode: (mode: string, input: Object) => void;
 
   /**
    * Sets current wapp output. When the user clicks on the done button in popup mode,
@@ -223,7 +227,7 @@ interface Wapp {
    * @date 2021-03-20
    * @param {any} Output - Output to set.
    */
-  setOutput: (output: any) => void
+  setOutput: (output: any) => void;
 
   /**
    * When wapp is running in popup mode,
@@ -232,56 +236,56 @@ interface Wapp {
    * @date 2021-03-20
    * @param {any} Output - Output to set.
    */
-  donePopup: (output: any) => void
+  donePopup: (output: any) => void;
 
   /**
    * When wapp is running in popup mode,
    * Closes the popup and rejects the popup mode request in parent wapp.
    */
-  cancelPopup: () => void
+  cancelPopup: () => void;
 
   /**
    * Returns Running wapp input, also containing instance customization.
    */
-  getInput: () => Object
+  getInput: () => Object;
 
   /** Returns Array of running wapp admins’ user Ids. */
-  getAdmins: () => string[]
+  getAdmins: () => string[];
 }
 
 /////////////////////////
 //        User         //
 ////////////////////////
 interface UserInfo {
-  id: string
-  username: string
+  id: string;
+  username: string;
 }
 
 interface UserProfile extends UserInfo {}
 
 interface User {
   /** Returns Id of user. */
-  getId: () => string
+  getId: () => string;
 
   /** Returns username of user. */
-  getUsername: () => string
+  getUsername: () => string;
 
   /** Returns first name of user. */
-  getFirstname: () => string
+  getFirstname: () => string;
   /** Returns string: Last name of user. */
-  getLastname: () => string
+  getLastname: () => string;
   /** Returns URL of user’s profile image. */
-  getProfileImage: () => string | undefined
+  getProfileImage: () => string | undefined;
 
   /** Returns bio of user. */
-  getBio: () => string | undefined
+  getBio: () => string | undefined;
 
   /**
    * Returns an Object containing user info (Id, username, ...).
    * @date 2021-03-20
    * @returns UserInfo
    */
-  getInfo: () => UserInfo
+  getInfo: () => UserInfo;
 
   /**
    * @date 2021-03-20
@@ -289,7 +293,7 @@ interface User {
    * @note If desired section of profile is empty, weblite opens profile and asks user to fill that section.
    * @returns a specific section of user profile (ex: school).
    */
-  getProfile: (section: string) => Promise<Partial<UserProfile>>
+  getProfile: (section: string) => Promise<Partial<UserProfile>>;
 
   /**
    * Opens a specific section of user’s profile for editing (ex: school) and returns new data.
@@ -298,7 +302,7 @@ interface User {
    * @note If desired section of profile is empty, weblite opens profile and asks user to fill that section.
    * @returns a new data.
    */
-  editProfile: (section: string) => Promise<Partial<UserProfile>>
+  editProfile: (section: string) => Promise<Partial<UserProfile>>;
 }
 
 /////////////////////////
@@ -311,7 +315,7 @@ interface Users {
    * @param {string[]} ids - Array of Ids to fetch their user info.
    * @returns users profiles containing fetched user's info normalized on their Ids.
    */
-  getById: (ids: string[]) => Promise<Partial<UserProfile>>
+  getById: (ids: string[]) => Promise<Partial<UserProfile>>;
 
   /**
    * Gives info of provided users by usernames.
@@ -320,13 +324,13 @@ interface Users {
    * @returns users profiles containing fetched user's info normalized on their Usernames.
    * @see getById
    */
-  getByUsername: (usernames: string[]) => Promise<Partial<UserProfile>>
+  getByUsername: (usernames: string[]) => Promise<Partial<UserProfile>>;
   /**
    * Opens user’s profile page that specified (by id).
    * @date 2021-03-20
    * @param {string} userId - Id of user whom profile page you want to open.
    */
-  openProfile: (userId: string) => void
+  openProfile: (userId: string) => void;
 }
 
 /////////////////////////
@@ -346,16 +350,16 @@ type MessageContent =
   | string
   | {
       /** WappId of wapp to send */
-      wappId: string
+      wappId: string;
       /** Id of instance to send */
-      wisId: string
+      wisId: string;
       /** Widtg of inline wapp message to send */
-      width: number
+      width: number;
       /** Height of inline wapp message to send */
-      height: number
+      height: number;
       /** If wisId is not provided, will be used to instantiate wapp */
-      customize: Object
-    }
+      customize: Object;
+    };
 
 interface Messages {
   /**
@@ -382,7 +386,7 @@ interface Messages {
     type: string,
     content: Object,
     fromUser: boolean,
-  ) => Promise<string | undefined>
+  ) => Promise<string | undefined>;
 
   /**
    * Sends message only to the current chat if user has the permission.
@@ -408,28 +412,28 @@ interface Messages {
     type: string,
     content: Object,
     fromUser: boolean,
-  ) => Promise<string | undefined>
+  ) => Promise<string | undefined>;
 }
 
 /////////////////////////
 //         W           //
 ////////////////////////
 interface W {
-  analytics: Analytics
-  audioSystem: AudioSystem
-  chats: Chats
-  images: Images
-  messages: Messages
-  user: User
-  users: Users
-  wapp: Wapp
+  analytics: Analytics;
+  audioSystem: AudioSystem;
+  chats: Chats;
+  images: Images;
+  messages: Messages;
+  user: User;
+  users: Users;
+  wapp: Wapp;
 
-  initializeAsync: InitializeAsync
-  setHooks: SetHooks
-  shareDB: ShareDB
+  initializeAsync: InitializeAsync;
+  setHooks: SetHooks;
+  shareDB: ShareDB;
 }
 
 declare interface IWindow {
-  W: W
-  [key: string]: any
+  W: W;
+  [key: string]: any;
 }
