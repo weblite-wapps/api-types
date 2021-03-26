@@ -1,0 +1,11 @@
+#linters
+.prettierrc*
+.eslintrc*
+
+#editor settings
+.github
+.vscode
+.idea
+
+# test
+*.test.ts
