@@ -1,5 +1,5 @@
 {
-  "name": "@weblite-wapp/api-types",
+  "name": "@web-lite/api-types",
   "version": "1.0.0-alpha",
   "types": "index.d.ts",
   "author": {

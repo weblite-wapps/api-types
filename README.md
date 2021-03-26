@@ -5,19 +5,19 @@ typescript interfaces and types for W api object
 **Yarn**
 
 ```
-yarn add @weblite-wapp/api-types --dev
+yarn add @web-lite/api-types --dev
 ```
 
 **npm**
 
 ```
-npm install @weblite-wapp/api-types --save-dev
+npm install @web-lite/api-types --save-dev
 ```
 
 **typescript**
 
 ```ts
-import { IWindow } from '@weblite-wapp/api-types';
+import { IWindow } from '@web-lite/api-types';
 
 const W = (window as IWindow).W;
 ```
