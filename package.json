@@ -1,0 +1,21 @@
+{
+  "name": "@weblite-wapp/api-types",
+  "version": "1.0.0-alpha",
+  "types": "./index.d.ts",
+  "author": {
+    "name": "Amir.H Ebrahimi",
+    "email": "amirhosseinebrahimi77@gmail.com"
+  },
+  "keywords": [
+    "weblite",
+    "weblite-wapp",
+    "api",
+    "types",
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/weblite-wapps/api-types/issues"
+  },
+  "repository": "https://github.com/weblite-wapps/api-types",
+  "homepage": "https://github.com/weblite-wapps/api-types#readme"
+}
