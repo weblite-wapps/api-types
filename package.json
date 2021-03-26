@@ -1,6 +1,6 @@
 {
   "name": "@web-lite/api-types",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0-alpha.0",
   "types": "index.d.ts",
   "author": {
     "name": "Amir.H Ebrahimi",
