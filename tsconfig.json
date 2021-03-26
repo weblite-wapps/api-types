@@ -13,5 +13,5 @@
       "esModuleInterop": true,
       "strictFunctionTypes": true
   },
-  "files": ["index.d.ts", "weblite-wapp-api-tests.ts"]
+  "files": ["index.d.ts", "weblite-wapp-api.test.ts"]
 }
