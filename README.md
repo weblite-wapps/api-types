@@ -24,10 +24,10 @@ const W = (window as IWindow).W;
 
 **javascript**
 
-- webstorm
+- **Webstorm**  
   Webstorm indexing will find and use the type for W, no additioanl setup is needed
 
-- vscode
+- **VSCode**  
   Add a reference to the typed file at heading when you want to use `W` APIs. VSCode will use its [intellisense](https://code.visualstudio.com/docs/editor/intellisense) to suggest docs and auto-complete.
 
 ```js
