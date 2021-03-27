@@ -1,27 +1,27 @@
-import { IWindow } from './index.d.ts';
+import IWindow from '.';
 
 const IMAGE_SRC = 'http:st.jpg';
 const AUDIO_SRC = 'http:st.mp3';
-const window: IWindow;
+const W = (window as IWindow).W;
 
-window.W.images.openModal({ src: IMAGE_SRC });
-window.W.images.openModal({ src: IMAGE_SRC, width: 5000 });
-window.W.audioSystem.play(AUDIO_SRC);
+W.images.openModal({ src: IMAGE_SRC });
+W.images.openModal({ src: IMAGE_SRC, width: 5000 });
+W.audioSystem.play(AUDIO_SRC);
 
-window.W(async () => {
-  const {
-    name,
-    id,
-    privateChat,
-  } = await window.W.chats.getPublicChatByUsername('Ali.m');
+(async () => {
+  const { name, id, privateChat } = await W.chats.getPublicChatByUsername(
+    'Ali.m',
+  );
 
-  const {} = await window.W.chats.getById('parasa');
+  const {} = await W.chats.getById('parasa');
 })();
 
-window.W.setHooks({
+W.setHooks({
   wappWillStart: (start, _, info) => {
     start();
     console.log(info);
   },
   onHalt: ({ mode }) => {},
 });
+
+W.user.editProfile('school');
