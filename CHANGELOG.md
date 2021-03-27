@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.0.0](https://github.com/weblite-wapps/api-types/tree/v1.0.0) (2021-03-27)
+
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.0.0-alpha.2...v1.0.0)
+
 ## [v1.0.0-alpha.2](https://github.com/weblite-wapps/api-types/tree/v1.0.0-alpha.2) (2021-03-27)
 
 [Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.0.0-alpha.1...v1.0.0-alpha.2)
