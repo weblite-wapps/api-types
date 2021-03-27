@@ -17,7 +17,7 @@ npm install @web-lite/api-types --save-dev
 **typescript**
 
 ```ts
-import { IWindow } from '@web-lite/api-types';
+import IWindow from '@web-lite/api-types';
 
 const W = (window as IWindow).W;
 ```

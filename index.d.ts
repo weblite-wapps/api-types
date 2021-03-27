@@ -433,9 +433,9 @@ interface W {
   shareDB: ShareDB;
 }
 
-declare interface IWindow {
-  W: W;
-  [key: string]: any;
+declare global {
+  interface Window {
+    W: W;
+  }
 }
-
-export = IWindow;
+export = Window;
