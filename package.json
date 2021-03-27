@@ -5,6 +5,7 @@
   "author": "Weblite Team",
   "version": "1.0.0",
   "description": "Use W with type checking and docs out of the box.",
+  "license": "BSD2",
   "keywords": [
     "weblite",
     "weblite-wapp",
