@@ -346,20 +346,18 @@ interface Users {
  * @property {Object} customize - If wisId is not provided, will be used to instantiate wapp
  */
 
-type MessageContent =
-  | string
-  | {
-      /** WappId of wapp to send */
-      wappId: string;
-      /** Id of instance to send */
-      wisId: string;
-      /** Widtg of inline wapp message to send */
-      width: number;
-      /** Height of inline wapp message to send */
-      height: number;
-      /** If wisId is not provided, will be used to instantiate wapp */
-      customize: Object;
-    };
+type MessageContent = {
+  /** WappId of wapp to send */
+  wappId: string;
+  /** Id of instance to send */
+  wisId: string;
+  /** Widtg of inline wapp message to send */
+  width: number;
+  /** Height of inline wapp message to send */
+  height: number;
+  /** If wisId is not provided, will be used to instantiate wapp */
+  customize?: Object;
+};
 
 interface Messages {
   /**
@@ -382,11 +380,16 @@ interface Messages {
    * If type is ‘wapp’ promise, gets resolved by sent wapp wisId;
    * Otherwise gets resolved by undefined.
    */
-  sendMessageToAll: (
-    type: string,
-    content: Object,
-    fromUser: boolean,
-  ) => Promise<string | undefined>;
+  sendMessageToAll(
+    type: 'text',
+    content: string,
+    fromUser?: boolean,
+  ): Promise<undefined>;
+  sendMessageToAll(
+    type: 'wapp',
+    content: MessageContent,
+    fromUser?: boolean,
+  ): Promise<string>;
 
   /**
    * Sends message only to the current chat if user has the permission.
@@ -408,11 +411,16 @@ interface Messages {
    * If type is ‘wapp’ promise, gets resolved by sent wapp wisId;
    * Otherwise gets resolved by undefined.
    */
-  sendMessageToCurrentChat: (
-    type: string,
-    content: Object,
+  sendMessageToCurrentChat(
+    type: 'text',
+    content: string,
     fromUser?: boolean,
-  ) => Promise<string | undefined>;
+  ): Promise<undefined>;
+  sendMessageToCurrentChat(
+    type: 'wapp',
+    content: MessageContent,
+    fromUser?: boolean,
+  ): Promise<string>;
 }
 
 /////////////////////////
