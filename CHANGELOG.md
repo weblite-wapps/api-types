@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/weblite-wapps/api-types/tree/HEAD)
+
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.0.2...HEAD)
+
+**Merged pull requests:**
+
+- add tsd test file [\#1](https://github.com/weblite-wapps/api-types/pull/1) ([amirHossein-Ebrahimi](https://github.com/amirHossein-Ebrahimi))
+
 ## [v1.0.2](https://github.com/weblite-wapps/api-types/tree/v1.0.2) (2021-03-27)
 
 [Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.0.1...v1.0.2)
