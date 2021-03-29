@@ -411,7 +411,7 @@ interface Messages {
   sendMessageToCurrentChat: (
     type: string,
     content: Object,
-    fromUser: boolean,
+    fromUser?: boolean,
   ) => Promise<string | undefined>;
 }
 
