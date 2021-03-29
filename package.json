@@ -20,5 +20,8 @@
     "access": "public"
   },
   "repository": "https://github.com/weblite-wapps/api-types",
-  "homepage": "https://github.com/weblite-wapps/api-types#readme"
+  "homepage": "https://github.com/weblite-wapps/api-types#readme",
+  "devDependencies": {
+    "tsd": "^0.14.0"
+  }
 }
