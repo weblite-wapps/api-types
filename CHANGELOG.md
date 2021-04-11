@@ -4,6 +4,10 @@
 
 [Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.0.2...HEAD)
 
+**Closed issues:**
+
+- mock api type in development [\#2](https://github.com/weblite-wapps/api-types/issues/2)
+
 **Merged pull requests:**
 
 - add tsd test file [\#1](https://github.com/weblite-wapps/api-types/pull/1) ([amirHossein-Ebrahimi](https://github.com/amirHossein-Ebrahimi))
