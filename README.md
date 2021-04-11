@@ -49,4 +49,4 @@ mockWebliteApi({ user: { firstname: 'custom_name', id: 'custom_id' } });
 ```
 
 This will only set `window.W` in development.
-`process.env.NODE_ENV === 'development' && !windoq.W`
+`process.env.NODE_ENV === 'development' && !window.W`
