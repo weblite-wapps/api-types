@@ -115,7 +115,7 @@ interface Notification {
 }
 
 /** An object containing lifecycle hooks. */
-interface Hooks {
+export interface Hooks {
   /**
    * Gets called when wapp is loaded.
    * @date 2021-03-20
@@ -446,4 +446,4 @@ declare global {
     W: W;
   }
 }
-export = Window;
+export default Window;

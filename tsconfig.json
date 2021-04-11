@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
-      "module": "commonjs",
-      "lib": ["es6", "DOM"],
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      "strictNullChecks": true,
-      "baseUrl": ".",
-      "typeRoots": ["."],
-      "types": [],
-      "noEmit": true,
-      "forceConsistentCasingInFileNames": true,
-      "esModuleInterop": true,
-      "strictFunctionTypes": true
+    "module": "commonjs",
+    "lib": ["es6", "DOM"],
+    "strict": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "typeRoots": ["."],
+    "types": ["node"],
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "strictFunctionTypes": true
   },
-  "files": ["index.d.ts", "weblite-wapp-api.test.ts"]
+  "exclude": ["node_modules"],
+  "files": ["index.ts", "index.d.ts"]
 }

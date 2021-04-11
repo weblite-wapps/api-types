@@ -24,10 +24,10 @@ const W = (window as IWindow).W;
 
 **javascript**
 
-- **Webstorm**  
+- **Webstorm**
   Webstorm indexing will find and use the type for W, no additioanl setup is needed
 
-- **VSCode**  
+- **VSCode**
   Add a reference to the typed file at heading when you want to use `W` APIs. VSCode will use its [intellisense](https://code.visualstudio.com/docs/editor/intellisense) to suggest docs and auto-complete.
 
 ```js
@@ -37,3 +37,16 @@ const W = (window as IWindow).W;
 > `Note:` You may need to change the path of `node_modules` directory in workspace-configured projects.
 
 **Note**: You can still use mocks.api
+
+## mock weblite api
+
+```js
+import { mockWebliteApi } from '@web-lite/api-types';
+
+mockWebliteApi();
+// or
+mockWebliteApi({ user: { firstname: 'custom_name', id: 'custom_id' } });
+```
+
+This will only set `window.W` in development.
+`process.env.NODE_ENV === 'development' && !windoq.W`
