@@ -84,6 +84,7 @@ export const mockWebliteApi = ({ user: input_user }: { user: IUser }) => {
           'hieght?': 'number',
         }),
       },
+      initializeAsync: async ()=> {}
     };
   }
 };

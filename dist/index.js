@@ -111,12 +111,11 @@ var mockWebliteApi = function (_a) {
                     'width?': 'number',
                     'hieght?': 'number'
                 })
-            }
+            },
+            initializeAsync: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                return [2 /*return*/];
+            }); }); }
         };
     }
 };
 exports.mockWebliteApi = mockWebliteApi;
-// import { mockWebliteApi } from '@web-lite/api-types';
-// mockWebliteApi()
-// or
-// mockWebliteApi({ user:{ firstname:'amrihossein'} })
