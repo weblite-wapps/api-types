@@ -4,7 +4,7 @@
   "main": "./dist/index.js",
   "types": "index.d.ts",
   "author": "Weblite Team",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Use W with type checking and docs out of the box.",
   "license": "BSD-3-Clause",
   "scripts": {
