@@ -9,7 +9,21 @@ interface IUser {
   profileImage?: string;
   bio?: string;
 }
-export const mockWebliteApi = ({ user: input_user }: { user: IUser }) => {
+
+interface IMock {
+  user: IUser;
+}
+
+export const mockWebliteApi = (
+  { user: input_user }: IMock = {
+    // defaults
+    user: {
+      id: '1e234e5678b91234567f8f9c',
+      firstname: 'firstname',
+      username: 'username',
+    },
+  },
+) => {
   if (process.env.NODE_ENV === 'development' && !W) {
     const loggerUI = {
       scope:
@@ -84,7 +98,7 @@ export const mockWebliteApi = ({ user: input_user }: { user: IUser }) => {
           'hieght?': 'number',
         }),
       },
-      initializeAsync: async ()=> {}
+      initializeAsync: async () => {},
     };
   }
 };

@@ -15,6 +15,7 @@
     "weblite-wapp",
     "api",
     "types",
+    "mock",
     "typescript"
   ],
   "bugs": {
