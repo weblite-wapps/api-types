@@ -43,7 +43,7 @@ const W = (window as IWindow).W;
 ```js
 import { mockWebliteApi } from '@web-lite/api-types';
 
-mockWebliteApi();
+mockWebliteApi({});
 // or
 mockWebliteApi({ user: { firstname: 'custom_name', id: 'custom_id' } });
 ```
