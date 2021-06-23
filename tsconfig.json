@@ -16,5 +16,5 @@
     "strictFunctionTypes": true
   },
   "exclude": ["node_modules"],
-  "files": ["index.ts", "index.d.ts"]
+  "include": ["src"]
 }
