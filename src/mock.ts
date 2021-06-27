@@ -18,7 +18,9 @@ import {
 
 const W = (window as IWindow).W;
 
-export const mockWebliteApi = (mock: Partial<IMock>) => {
+type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> };
+
+export const mockWebliteApi = (mock: DeepPartial<IMock>) => {
   if (process.env.NODE_ENV !== 'development' || W) return;
   setDefaultValueForMissingProps(mock);
   scopeInitiation();
