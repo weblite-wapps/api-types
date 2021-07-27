@@ -69,7 +69,7 @@ export let GLOBALS: IMock = {
 
 const noop = () => {};
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-let debug = GLOBALS.config.debug ? console.log : noop;
+export let debug = GLOBALS.config.debug ? console.log : noop;
 let shareDBStorage = new Storage('share-db', 'sessionStorage');
 
 export const scopeInitiation = () => {
@@ -93,7 +93,11 @@ export const globalUpdatePath = (
   GLOBALS = R.set(lens, R.mergeDeepLeft(update, globalLensView(path)), GLOBALS);
 };
 
-export const setDefaultValueForMissingProps = (mock: Partial<IMock>) => {
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends {} ? DeepPartial<T[P]> : T[P];
+};
+
+export const setDefaultValueForMissingProps = (mock: DeepPartial<IMock>) => {
   mock = R.mergeDeepLeft(mock, GLOBALS);
   R.forEach(key => globalUpdatePath([key], mock[key]!), R.keys(mock));
 };
@@ -388,7 +392,8 @@ export const getImageMock = () => ({
 
 /******************************************************************************/
 let db: Object;
-let subscription: (db: IMock['__db__']) => {};
+// @ts-ignore
+let subscription: (db: IMock['__db__']) => {} = noop;
 type cbShareDB = (db: IMock['__db__']) => IMock['__db__'];
 type Qlite<T extends string> = T | Qlite<T>[];
 type Ramda = typeof R;

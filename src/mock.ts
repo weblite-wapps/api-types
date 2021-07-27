@@ -14,15 +14,18 @@ import {
   getImageMock,
   scopeInitiation,
   getShareDBMock,
+  debug,
+  DeepPartial,
 } from './core';
 
 const W = (window as IWindow).W;
 
-export const mockWebliteApi = (mock: Partial<IMock>) => {
+export const mockWebliteApi = (mock: DeepPartial<IMock>) => {
   if (process.env.NODE_ENV !== 'development' || W) return;
   setDefaultValueForMissingProps(mock);
   scopeInitiation();
-  console.log('send(wappCommunicateCoreLoaded())');
+
+  debug('send(wappCommunicateCoreLoaded())');
 
   (window as any).W = {
     setHooks,
