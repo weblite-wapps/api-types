@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/weblite-wapps/api-types/tree/HEAD)
 
-[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.2.0-1...HEAD)
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.2.0-2...HEAD)
+
+**Merged pull requests:**
+
+- Dev [\#7](https://github.com/weblite-wapps/api-types/pull/7) ([amirHossein-Ebrahimi](https://github.com/amirHossein-Ebrahimi))
+
+## [v1.2.0-2](https://github.com/weblite-wapps/api-types/tree/v1.2.0-2) (2021-06-28)
+
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.2.0-1...v1.2.0-2)
 
 **Closed issues:**
 
