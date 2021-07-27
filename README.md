@@ -43,9 +43,55 @@ const W = (window as IWindow).W;
 ```js
 import { mockWebliteApi } from '@web-lite/api-types';
 
-mockWebliteApi({});
+mockWebliteApi();
 // or
 mockWebliteApi({ user: { firstname: 'custom_name', id: 'custom_id' } });
+```
+
+```ts
+export interface IMock {
+  config: {
+    debug: boolean;
+    timing: {
+      initializeAsync: number;
+      getProfile: number;
+      shareDB: number;
+      user: number;
+      chat: number;
+      message: number;
+    };
+    storage: 'localStorage' | 'sessionStorage';
+  };
+  __profile__: Record<string, any>;
+  profile: {
+    school?: {};
+  };
+
+  __users__: Record<string, Omit<IMock['user'], 'getInfo'>>;
+  user: {
+    id: string;
+    firstname: string;
+    lastname?: string;
+    username: string;
+    profileImage?: string;
+    bio?: string;
+    getInfo: () => Omit<IMock['user'], 'getInfo'>;
+  };
+
+  __wapps__: {
+    wisId?: string;
+    wappId: string;
+    mode: RunningWappMode;
+  };
+  wapps: {
+    inputs?: Record<string, any>;
+    admins?: string[];
+  };
+
+  __chat__: Record<string, ChatInfo>;
+
+  __db__: {};
+}
 ```
 
 This will only set `window.W` in development.
