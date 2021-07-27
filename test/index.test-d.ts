@@ -1,5 +1,5 @@
 import { expectType } from 'tsd';
-import IWindow from '.';
+import IWindow from '../src';
 
 const W = (window as IWindow).W;
 

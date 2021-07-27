@@ -1,12 +1,16 @@
 {
   "name": "@web-lite/api-types",
   "private": false,
-  "main": "./dist/index.js",
-  "types": "index.d.ts",
+  "main": "./dist/mock.js",
+  "types": "./src/index.d.ts",
   "author": "Weblite Team",
-  "version": "1.1.1",
-  "description": "Use W with type checking and docs out of the box.",
+  "version": "1.2.0-2",
+  "description": "Use W with type checking and mock out of the box.",
   "license": "BSD-3-Clause",
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "scripts": {
     "build": "tsc"
   },
@@ -26,8 +30,12 @@
   },
   "repository": "https://github.com/weblite-wapps/api-types",
   "homepage": "https://github.com/weblite-wapps/api-types#readme",
+  "dependencies": {
+    "ramda": "0.25.0"
+  },
   "devDependencies": {
     "@types/node": "^14.14.37",
+    "@types/ramda": "0.25.51",
     "tsd": "^0.14.0",
     "typescript": "^4.2.4"
   }

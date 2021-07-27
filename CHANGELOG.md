@@ -1,5 +1,26 @@
 # Changelog
 
+## [Unreleased](https://github.com/weblite-wapps/api-types/tree/HEAD)
+
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.2.0-1...HEAD)
+
+**Closed issues:**
+
+- Remove mock empty config object [\#4](https://github.com/weblite-wapps/api-types/issues/4)
+- log types [\#3](https://github.com/weblite-wapps/api-types/issues/3)
+
+## [v1.2.0-1](https://github.com/weblite-wapps/api-types/tree/v1.2.0-1) (2021-06-27)
+
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.2.0-0...v1.2.0-1)
+
+## [v1.2.0-0](https://github.com/weblite-wapps/api-types/tree/v1.2.0-0) (2021-06-23)
+
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.1.1...v1.2.0-0)
+
+**Merged pull requests:**
+
+- mock weblite api [\#5](https://github.com/weblite-wapps/api-types/pull/5) ([amirHossein-Ebrahimi](https://github.com/amirHossein-Ebrahimi))
+
 ## [v1.1.1](https://github.com/weblite-wapps/api-types/tree/v1.1.1) (2021-04-17)
 
 [Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.1.0...v1.1.1)

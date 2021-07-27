@@ -14,7 +14,7 @@ interface Images {
   openModal: (options: {
     src: string;
     width?: number;
-    hieght?: number;
+    height?: number;
   }) => void;
 }
 
@@ -22,10 +22,10 @@ interface Images {
 //        CHATES      //
 ////////////////////////
 
-interface ChatInfo {
+export interface ChatInfo {
   id?: string;
   description?: string;
-  isMember?: boolean;
+  isMember?: boolean | null;
   name?: string;
   profileImage?: string;
   type?: 'channel' | 'group';
@@ -90,7 +90,7 @@ interface AudioSystem {
 /** @typedef {('inline' | 'popup' | 'drawer' | 'main' | 'fullscreen' | 'customize')} TWappModes */
 /** @typedef {{mode: TWappModes}} TRunningWappMode */
 
-type RunningWappMode =
+export type RunningWappMode =
   | 'inline'
   | 'popup'
   | 'drawer'
@@ -174,13 +174,26 @@ type SetHooks = (hooks: Hooks) => void;
  * Notice that starred functions need W.initializeAsync() to be resolved (by undefined)
  * before they can be called.
  */
-type InitializeAsync = () => Promise<void>;
+type InitializeAsync = () => Promise<any>;
 
 /////////////////////////
 //      ShareDB        //
 ////////////////////////
 //** Under Construction */
-type ShareDB = (value: any) => void;
+type Qlite<T extends string> = T | Qlite<T>[];
+interface ShareDB {
+  get: (path: string[]) => any;
+  getFromServer: (path: string[]) => Promise<any>;
+
+  dispatch: (
+    path: string[],
+    qlite: [string, Qlite<string>],
+    defaultVal: any,
+    options: any,
+  ) => void;
+
+  subscribe: (func: (arg: any) => void) => void;
+}
 
 /////////////////////////
 //        Wapp         //
@@ -256,14 +269,18 @@ interface Wapp {
 /////////////////////////
 //        User         //
 ////////////////////////
-interface UserInfo {
+export interface UserInfo {
   id: string;
+  firstname: string;
+  lastname?: string;
   username: string;
+  profileImage?: string;
+  bio?: string;
 }
 
 interface UserProfile extends UserInfo {}
 
-interface User {
+export interface User {
   /** Returns Id of user. */
   getId: () => string;
 
@@ -346,7 +363,7 @@ interface Users {
  * @property {Object} customize - If wisId is not provided, will be used to instantiate wapp
  */
 
-type MessageContent = {
+export type MessageContent = {
   /** WappId of wapp to send */
   wappId: string;
   /** Id of instance to send */
@@ -359,7 +376,7 @@ type MessageContent = {
   customize?: Object;
 };
 
-interface Messages {
+export interface Messages {
   /**
    * Sends message to all chats that running wapp exists in and has permission to send message.
    *
@@ -447,3 +464,49 @@ declare global {
   }
 }
 export default Window;
+
+export interface IMock {
+  config: {
+    debug: boolean;
+    timing: {
+      initializeAsync: number;
+      getProfile: number;
+      shareDB: number;
+      user: number;
+      chat: number;
+      message: number;
+    };
+    storage: 'localStorage' | 'sessionStorage';
+  };
+
+  // TODO: Custom profile views
+  __profile__: Record<string, any>;
+  profile: {
+    school?: {};
+  };
+
+  __users__: Record<string, Omit<IMock['user'], 'getInfo'>>;
+  user: {
+    id: string;
+    firstname: string;
+    lastname?: string;
+    username: string;
+    profileImage?: string;
+    bio?: string;
+    getInfo: () => Omit<IMock['user'], 'getInfo'>;
+  };
+
+  __wapps__: {
+    wisId?: string;
+    wappId: string;
+    mode: RunningWappMode;
+  };
+  wapps: {
+    inputs?: Record<string, any>;
+    admins?: string[];
+  };
+
+  __chat__: Record<string, ChatInfo>;
+
+  __db__: {};
+}
