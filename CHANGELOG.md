@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/weblite-wapps/api-types/tree/HEAD)
+## [v1.2.0](https://github.com/weblite-wapps/api-types/tree/v1.2.0) (2021-07-27)
 
-[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.2.0-2...HEAD)
+[Full Changelog](https://github.com/weblite-wapps/api-types/compare/v1.2.0-2...v1.2.0)
 
 **Merged pull requests:**
 
