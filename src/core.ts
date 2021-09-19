@@ -99,7 +99,10 @@ export type DeepPartial<T> = {
 
 export const setDefaultValueForMissingProps = (mock: DeepPartial<IMock>) => {
   mock = R.mergeDeepLeft(mock, GLOBALS);
-  R.forEach(key => globalUpdatePath([key], mock[key]!), R.keys(mock));
+  R.forEach(
+    (key: keyof IMock) => globalUpdatePath([key], mock[key]!),
+    R.keys(mock),
+  );
 };
 
 /******************************************************************************/
@@ -204,7 +207,7 @@ export const getUsersMock = () => ({
     await sleep(GLOBALS.config.timing.user);
     const users: Partial<typeof GLOBALS.__users__> = {};
 
-    R.forEach(userId => {
+    R.forEach((userId: string) => {
       const probableUser = _getUserById(userId);
       if (probableUser) users[userId] = probableUser;
       else debug(`[No user exist] userId: ${userId} in your __users__`);
@@ -217,7 +220,7 @@ export const getUsersMock = () => ({
     await sleep(GLOBALS.config.timing.user);
     const users: Partial<typeof GLOBALS.__users__> = {};
 
-    R.forEach(username => {
+    R.forEach((username: string) => {
       const probableUser = _getUserByUsername(username);
       if (probableUser) users[username] = probableUser;
       else debug(`[No user exist] username: ${username} in your __users__`);
@@ -376,10 +379,12 @@ export const getAudioMock = () => ({
   },
 });
 /******************************************************************************/
-export const getAnalyticsMock =
-  () => (type: string, data: { [key: string]: string | number }) => {
-    debug(`Send analytics event for [${type}] with te following data`, data);
-  };
+export const getAnalyticsMock = () => (
+  type: string,
+  data: { [key: string]: string | number },
+) => {
+  debug(`Send analytics event for [${type}] with te following data`, data);
+};
 /******************************************************************************/
 
 export const getImageMock = () => ({
@@ -423,7 +428,7 @@ const parserFunction = (R: Ramda) => {
   }
 
   // (args)
-  const parseList: any = R.map(arg => {
+  const parseList: any = R.map((arg: string | string[]) => {
     if (R.type(arg) === 'Array')
       return isFunction(arg as Qlite<string>)
         ? parseFunction(arg as [string, Qlite<string>])
