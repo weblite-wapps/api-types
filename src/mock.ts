@@ -16,6 +16,7 @@ import {
   getShareDBMock,
   debug,
   DeepPartial,
+  getWappActivity,
 } from './core';
 
 const W = (window as IWindow).W;
@@ -39,5 +40,6 @@ export const mockWebliteApi = (mock: DeepPartial<IMock>) => {
     analytics: getAnalyticsMock(),
     images: getImageMock(),
     shareDB: getShareDBMock(),
+    wappActivity: getWappActivity(),
   } as IWindow['W'];
 };

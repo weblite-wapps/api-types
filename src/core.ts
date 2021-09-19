@@ -483,3 +483,15 @@ export const getShareDBMock = () => ({
     subscription = func;
   },
 });
+
+export const getWappActivity = () => ({
+  search: async (args: { [key: string]: any } & { instance: string }) => {
+    debug('[wappActivity.search]', args);
+    return [] as any;
+  },
+
+  postActivity: (args: { [key: string]: any } & { instance: string }) => {
+    debug('[wappActivity.postActivity]', args);
+    return Promise.resolve();
+  },
+});

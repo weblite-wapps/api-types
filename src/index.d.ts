@@ -440,6 +440,12 @@ export interface Messages {
   ): Promise<string>;
 }
 
+type wappActivityArgs = { [key: string]: any } & { instance: string };
+export interface WappActivity {
+  search: (args: wappActivityArgs) => Promise<any>;
+  postActivity: (args: wappActivityArgs) => Promise<any>;
+}
+
 /////////////////////////
 //         W           //
 ////////////////////////
@@ -456,6 +462,7 @@ interface W {
   initializeAsync: InitializeAsync;
   setHooks: SetHooks;
   shareDB: ShareDB;
+  wappActivity: WappActivity;
 }
 
 declare global {
