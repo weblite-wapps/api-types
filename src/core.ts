@@ -1,5 +1,5 @@
 import * as R from 'ramda';
-import { MessageContent, ChatInfo, IMock } from './index';
+import IWindow, { MessageContent, ChatInfo, IMock } from './index';
 
 class Storage {
   identifier: string;
@@ -97,10 +97,10 @@ export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends {} ? DeepPartial<T[P]> : T[P];
 };
 
-export const setDefaultValueForMissingProps = (mock: DeepPartial<IMock>) => {
+export const setDefaultValueForMissingProps = (mock?: DeepPartial<IMock>) => {
   mock = R.mergeDeepLeft(mock, GLOBALS);
   R.forEach(
-    (key: keyof IMock) => globalUpdatePath([key], mock[key]!),
+    (key: keyof IMock) => globalUpdatePath([key], (mock as IMock)[key]!),
     R.keys(mock),
   );
 };
@@ -485,13 +485,39 @@ export const getShareDBMock = () => ({
 });
 
 export const getWappActivity = () => ({
-  search: async (args: { [key: string]: any } & { instance: string }) => {
-    debug('[wappActivity.search]', args);
+  search: async (query: Record<string, any>) => {
+    debug('[wappActivity.search]', query);
     return [] as any;
   },
 
-  postActivity: (args: { [key: string]: any } & { instance: string }) => {
+  postActivity: (args: Record<string, any>) => {
     debug('[wappActivity.postActivity]', args);
     return Promise.resolve();
   },
 });
+
+/* MOCK */
+const W = (window as IWindow).W;
+
+export const mockWebliteApi = (mock?: DeepPartial<IMock>) => {
+  if (process.env.NODE_ENV !== 'development' || W) return;
+  setDefaultValueForMissingProps(mock);
+  scopeInitiation();
+
+  debug('send(wappCommunicateCoreLoaded())');
+
+  (window as any).W = {
+    setHooks,
+    initializeAsync,
+    user: getUserMock(),
+    users: getUsersMock(),
+    wapp: getWappsMock(),
+    chats: getChatMock(),
+    messages: getMessageMock(),
+    audioSystem: getAudioMock(),
+    analytics: getAnalyticsMock(),
+    images: getImageMock(),
+    shareDB: getShareDBMock(),
+    wappActivity: getWappActivity(),
+  } as IWindow['W'];
+};

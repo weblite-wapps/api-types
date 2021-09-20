@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "lib": ["es6", "DOM"],
     "strict": true,
     "declaration": true,
@@ -9,7 +9,6 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "baseUrl": ".",
-    "typeRoots": ["."],
     "types": ["node"],
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,

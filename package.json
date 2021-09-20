@@ -1,17 +1,18 @@
 {
   "name": "@web-lite/api-types",
   "private": false,
-  "main": "./dist/mock.js",
-  "types": "./src/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typing": "./dist/index.d.ts",
   "author": "Weblite Team",
   "version": "1.4.0",
   "description": "Use W with type checking and mock out of the box.",
   "license": "BSD-3-Clause",
   "files": [
-    "dist/",
-    "src/"
+    "dist/"
   ],
   "scripts": {
+    "prebuild": "rm -rf dist",
     "build": "tsc"
   },
   "keywords": [

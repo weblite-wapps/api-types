@@ -440,10 +440,20 @@ export interface Messages {
   ): Promise<string>;
 }
 
-type wappActivityArgs = { [key: string]: any } & { instance: string };
 export interface WappActivity {
-  search: (args: wappActivityArgs) => Promise<any>;
-  postActivity: (args: wappActivityArgs) => Promise<any>;
+  postActivity: (args: {
+    instance: string;
+    activity: string;
+    payload?: number | Record<string, any>;
+    aggField?: string;
+  }) => Promise<any>;
+
+  search: (query: {
+    filter: Record<string, any>;
+    sort?: string | Record<string, 'asc' | 'desc' | 'ASC' | 'DESC'>;
+    slice?: { limit?: number; offset?: number };
+    aggregate?: Record<string, Record<string, string>>;
+  }) => Promise<any>;
 }
 
 /////////////////////////
@@ -517,3 +527,5 @@ export interface IMock {
 
   __db__: {};
 }
+
+export { mockWebliteApi } from './core';
