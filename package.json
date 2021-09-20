@@ -5,7 +5,7 @@
   "types": "./dist/index.d.ts",
   "typing": "./dist/index.d.ts",
   "author": "Weblite Team",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Use W with type checking and mock out of the box.",
   "license": "BSD-3-Clause",
   "files": [
